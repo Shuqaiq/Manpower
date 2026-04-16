@@ -202,7 +202,6 @@
                 </select>
             </div>
 
-            <!-- الحقول الجديدة -->
             <div class="form-group">
                 <label id="lbl_department">الإدارة</label>
                 <select id="emp_department" name="department" required>
@@ -218,7 +217,6 @@
                 <label id="lbl_section">الدائرة/ المجموعة/ القسم</label>
                 <input type="text" id="emp_section" name="section" required>
             </div>
-            <!-- نهاية الحقول الجديدة -->
 
             <div class="form-group">
                 <label id="lbl_contractor">المقاول</label>
@@ -238,6 +236,8 @@
                     <option value="Primary" id="opt_primary">ابتدائي</option>
                     <option value="Intermediate" id="opt_intermediate">متوسط</option>
                     <option value="Secondary" id="opt_secondary">ثانوي</option>
+                    <!-- إضافة الدبلوم هنا قبل البكالوريوس -->
+                    <option value="Diploma" id="opt_diploma">دبلوم</option>
                     <option value="Bachelor" id="opt_bachelor">بكالوريوس</option>
                     <option value="Master" id="opt_master">ماجستير</option>
                     <option value="PhD" id="opt_phd">دكتوراه</option>
@@ -301,8 +301,11 @@
             lbl_section: "الدائرة/ المجموعة/ القسم",
 
             lbl_contractor: "المقاول", opt_taqa: "طاقة", opt_etqan: "اتقان الحلول", opt_ghulam: "غلام شبير", opt_majal: "المجال",
+
+            // تحديث قاموس المؤهلات بالعربي وإضافة الدبلوم
             lbl_qualification: "المؤهل", opt_primary: "ابتدائي", opt_intermediate: "متوسط", opt_secondary: "ثانوي",
-            opt_bachelor: "بكالوريوس", opt_master: "ماجستير", opt_phd: "دكتوراه",
+            opt_diploma: "دبلوم", opt_bachelor: "بكالوريوس", opt_master: "ماجستير", opt_phd: "دكتوراه",
+
             lbl_specialization: "التخصص", lbl_qual_date: "تاريخ الحصول على المؤهل", 
             lbl_qual_file: "إرفاق المؤهل (PDF أو صورة)", lbl_file_desc: "الحد الأقصى لحجم الملف: 5 ميجابايت (يُفضل تصوير المستند بدقة متوسطة)",
             lbl_job_title: "المسمى الوظيفي حسب عقد العمل",
@@ -324,8 +327,11 @@
             lbl_section: "Division / Group / Section",
 
             lbl_contractor: "Contractor", opt_taqa: "TAAQA", opt_etqan: "Exact", opt_ghulam: "GSSC", opt_majal: "Al-Majal",
+
+            // تحديث قاموس المؤهلات بالإنجليزي وإضافة الدبلوم
             lbl_qualification: "Qualification", opt_primary: "Primary", opt_intermediate: "Intermediate", opt_secondary: "Secondary",
-            opt_bachelor: "Bachelor's", opt_master: "Master's", opt_phd: "PhD",
+            opt_diploma: "Diploma", opt_bachelor: "Bachelor's", opt_master: "Master's", opt_phd: "PhD",
+
             lbl_specialization: "Specialization", lbl_qual_date: "Qualification Date", 
             lbl_qual_file: "Attach Qualification (PDF or Image)", lbl_file_desc: "Maximum file size: 5MB",
             lbl_job_title: "Job Title",
@@ -346,12 +352,13 @@
         document.title = t.title;
         document.getElementById('formTitle').innerText = t.title;
 
+        // إضافة id الدبلوم لمصفوفة التحديث
         const ids = ['langBtn', 'lbl_name', 'lbl_id', 'lbl_mobile', 'lbl_dob', 'lbl_age', 'lbl_gender', 
                      'lbl_department', 'opt_dept_tsd', 'opt_dept_maint', 'opt_dept_ops', 'opt_dept_hse', 'lbl_section',
                      'lbl_contractor', 'lbl_qualification', 
                      'lbl_specialization', 'lbl_qual_date', 'lbl_qual_file', 'lbl_file_desc', 'lbl_job_title', 'lbl_join_date', 'lbl_end_date',
                      'opt_male', 'opt_female', 'opt_taqa', 'opt_etqan', 'opt_ghulam', 'opt_majal',
-                     'opt_primary', 'opt_intermediate', 'opt_secondary', 'opt_bachelor', 'opt_master', 'opt_phd',
+                     'opt_primary', 'opt_intermediate', 'opt_secondary', 'opt_diploma', 'opt_bachelor', 'opt_master', 'opt_phd',
                      'btn_submit'];
 
         ids.forEach(id => { if(document.getElementById(id)) document.getElementById(id).innerText = t[id]; });
@@ -424,7 +431,6 @@
                 age: document.getElementById('emp_age').value,
                 gender: document.getElementById('emp_gender').value,
 
-                // الحقول الجديدة
                 department: document.getElementById('emp_department').value,
                 section: document.getElementById('emp_section').value,
 
